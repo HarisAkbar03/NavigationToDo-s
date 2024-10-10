@@ -95,11 +95,11 @@ fun BasicOperations(name: String, modifier: Modifier = Modifier) {
         // ToDo 4: Add a horizontal divider between the buttons
         HorizontalDivider(thickness = DividerDefaults.Thickness)
 
-
+        var isChecked by remember { mutableStateOf(true) }
         // ToDo 5: This switch is not working fix it
         Switch(
-            checked = true,
-            onCheckedChange = {  },
+            checked = isChecked,
+            onCheckedChange = { isChecked = it } ,
             modifier = Modifier.padding(10.dp),
         )
         // ToDo 6: when the switch is off, disable the buttons
