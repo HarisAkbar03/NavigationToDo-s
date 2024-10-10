@@ -86,7 +86,7 @@ fun FirstScreen(navController: NavController) {
             horizontalAlignment = Alignment.CenterHorizontally){
             Text(text = "First Screen")
 
-            Button(onClick = { navController.navigate("second_screen") }) {
+            Button(onClick = { navController.navigate("PizzApp") }) {
                 Text(text ="Go to Second Screen")
             }
 
