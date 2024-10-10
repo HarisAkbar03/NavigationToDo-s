@@ -79,12 +79,14 @@ fun Navigation() {
 @Composable
 fun FirstScreen(navController: NavController) {
     Box (contentAlignment = Alignment.Center){
-        Column ( modifier = Modifier.padding(horizontal = 20.dp).wrapContentSize(),
+        Column ( modifier = Modifier
+            .padding(horizontal = 20.dp)
+            .wrapContentSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally){
             Text(text = "First Screen")
 
-            Button(onClick = { navController.navigate("PizzApp") }) {
+            Button(onClick = { navController.navigate("second_screen") }) {
                 Text(text ="Go to Second Screen")
             }
 
@@ -98,12 +100,13 @@ fun FirstScreen(navController: NavController) {
 @Composable
 fun SecondScreen(navController: NavController) {
     var sliderValue by remember { mutableStateOf(0.5f) }
+    var Slideroff by remember { mutableStateOf(true) }
 
     val context = LocalContext.current
     Column ( modifier = Modifier.padding(horizontal = 20.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally){
-        Slider(value = sliderValue, onValueChange = { sliderValue=it }, Modifier.fillMaxWidth())
+        Slider(value = sliderValue, onValueChange = { sliderValue=it }, enabled = Slideroff, modifier = Modifier.fillMaxWidth())
 
         Text (fontSize = 20.sp, text = "Second Screen")
 
@@ -112,7 +115,10 @@ fun SecondScreen(navController: NavController) {
         }
 
         // ToDo 8: when the switch is off, disable the slider
-        Checkbox(checked = true, onCheckedChange = {  }, modifier = Modifier.padding(10.dp))
+        Checkbox(
+            checked = Slideroff,
+            onCheckedChange = { Slideroff = it },
+            modifier = Modifier.padding(10.dp))
 
     }
 
