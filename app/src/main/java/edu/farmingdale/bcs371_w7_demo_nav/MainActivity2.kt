@@ -67,8 +67,11 @@ fun BasicOperations(name: String, modifier: Modifier = Modifier) {
         HorizontalDivider(thickness = DividerDefaults.Thickness)
 
         Button( onClick = {
-            val newInt = Intent(Intent.ACTION_VIEW)
+            //Completed 1
             // ToDo 1: create implicit intent to open a web page or call a phone number
+            val webPage: Uri = Uri.parse("https://github.com/HarisAkbar03")
+            val newInt = Intent(Intent.ACTION_VIEW,webPage)
+
             context.startActivity(newInt)
         },
             modifier= Modifier.padding(start = 40.dp, end = 40.dp)) {
